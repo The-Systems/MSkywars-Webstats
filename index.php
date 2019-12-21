@@ -112,9 +112,12 @@ th {
 			<div class="6u 12u$(medium)">
                 <section class="box">
                     <h3>Skywars Stats</h3>
-					<h4>Version: <?php echo $version;?> von Niekold</h4>
+					<h4>Version: <?php echo $version;?> von TheSystems</h4>
+
                     <?php
+
                     $curl = curl_init();
+
                     curl_setopt_array($curl, array(
                         CURLOPT_URL => "https://project.the-systems.eu/api/resource/?resourceid=3&type=latest",
                         CURLOPT_RETURNTRANSFER => true,
@@ -138,11 +141,12 @@ th {
                             ?><h4>Du nutzt eine alte Version. Die neuste ist: <?php echo $response->name; ?></h4><?php
                         }
                     }
+
                     ?>
                     <?php
                     $curl = curl_init();
                     curl_setopt_array($curl, array(
-                        CURLOPT_URL => "https://project.the-systems.eu/api/resource/?resourceid=3&type=info",
+                        CURLOPT_URL => "https://project.the-systems.eu/api/resource/?resourceid=2&type=info",
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => "",
                         CURLOPT_MAXREDIRS => 10,
@@ -163,25 +167,9 @@ th {
 
                     }
                     ?>
-					<p></p>
+                    <p></p>
                     <p><a href="<?php echo $support; ?>" class="button">Support Discord</a></p>
                     <p><a href="<?php echo $url; ?>" class="button">Webseite</a></p>
-					
-					<?php
-  $options = array('http'=>array('method'=>"GET",'header'=>"-Xversion:aktuelleversion\r\n"));
-  $context = stream_context_create($options);
-  $jsonlol = file_get_contents($versioncheck, false, $context);
-  $json = json_decode($jsonlol);
-  $oldversion = $json->response->oldversion;
-  
-if (in_array($version, $oldversion)) { ?>
-	<h1><span style="color: #FF0000"> Die Version die du nutzt ist Alt!</span></h1>
-	<h1><span style="color: #FF0000"> Für diese Version bekommst du keinen Support mehr!</span></h1><?php
-}
-	?> 
-								<?php if($debug == 1) { 
-										echo $jsonlol;
-										} ?>
 					</section>
 				</div>
 				<div class="12u 12u$(medium)">
