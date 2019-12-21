@@ -146,7 +146,7 @@ th {
                     <?php
                     $curl = curl_init();
                     curl_setopt_array($curl, array(
-                        CURLOPT_URL => "https://project.the-systems.eu/api/resource/?resourceid=2&type=info",
+                        CURLOPT_URL => "https://project.the-systems.eu/api/resource/?resourceid=3&type=info",
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => "",
                         CURLOPT_MAXREDIRS => 10,
